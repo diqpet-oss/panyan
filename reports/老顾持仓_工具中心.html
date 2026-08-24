@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老顾持仓 · 工具应用中心</title>
+<style>
+  :root { --bg:#0f1318; --panel:#171c23; --line:#242b34; --txt:#e6edf3; --sub:#8b929c; --up:#f04452; --down:#16a34a; --warn:#fbbf24; --accent:#60a5fa; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--txt); font:14px/1.6 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+  .wrap { max-width:1180px; margin:0 auto; padding:22px 16px 60px; }
+  h1 { font-size:21px; margin:0 0 4px; }
+  .meta { color:var(--sub); font-size:12px; margin-bottom:18px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:16px; }
+  .card h2 { font-size:15px; margin:0 0 12px; padding-bottom:8px; border-bottom:1px solid var(--line); }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  th,td { padding:8px 8px; text-align:left; border-bottom:1px solid var(--line); vertical-align:middle; }
+  th { color:var(--sub); font-weight:600; white-space:nowrap; }
+  .up { color:var(--up); } .down { color:var(--down); } .warn { color:var(--warn); } .accent { color:var(--accent); }
+  .tag { display:inline-block; padding:1px 9px; border-radius:10px; font-size:12px; font-weight:700; white-space:nowrap; }
+  .t-bull { background:rgba(244,68,82,.15); color:var(--up); }
+  .t-neu { background:rgba(96,165,250,.15); color:var(--accent); }
+  .t-bear { background:rgba(22,163,74,.15); color:var(--down); }
+  .dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:4px; }
+  .ok { background:#16a34a; } .run { background:#fbbf24; } .todo { background:#6b7480; }
+  .link { color:var(--accent); text-decoration:none; } .link:hover { text-decoration:underline; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:10px; }
+  .nav { background:#11161d; border:1px solid var(--line); border-radius:10px; padding:12px 14px; }
+  .nav .t { font-weight:700; margin-bottom:4px; } .nav .d { color:var(--sub); font-size:12px; }
+  .foot { color:var(--sub); font-size:11px; margin-top:10px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>📌 老顾持仓 · 工具应用中心</h1>
+  <div class="meta">2026-08-24 盘后 ｜ 当前 5 只持仓：顺络电子 / 日久光电 / 利民股份 / 美利信 / 中毅达 ｜ 已清仓：优彩资源、义翘神州</div>
+
+  <div class="card">
+    <h2>持仓 × 工具 结果矩阵（已运行工具）</h2>
+    <table>
+      <thead><tr><th>股票</th><th>技术面<br>Kronos</th><th>AI综合<br>Vibe</th><th>多因子<br>dSA</th><th>主力资金<br>五路口径</th><th>综合共识</th><th>明日方向</th></tr></thead>
+      <tbody>
+        <tr><td>中毅达<br><span style="color:#6b7480;font-size:10px">600610</span></td>
+          <td class="up">+18 看多</td><td class="up">8分 看多</td><td>—</td>
+          <td><span class="tag t-bull">偏多(+2)</span></td>
+          <td class="up">🟢 持有看多</td><td class="up">持有·盯封板</td></tr>
+        <tr><td>日久光电<br><span style="color:#6b7480;font-size:10px">003015</span></td>
+          <td class="up">+23 看多</td><td class="up">7分 看多</td><td>—</td>
+          <td><span class="tag t-neu">中性(0)</span></td>
+          <td class="up">🟢 持有看多</td><td class="up">持有·回踩加</td></tr>
+        <tr><td>顺络电子<br><span style="color:#6b7480;font-size:10px">002138</span></td>
+          <td class="up">+25 看多</td><td class="warn">6分 中性</td><td class="warn">45 持有</td>
+          <td><span class="tag t-bear">主力减持(-3)</span></td>
+          <td class="warn">🟡 观望偏多</td><td class="warn">观望·反弹减</td></tr>
+        <tr><td>美利信<br><span style="color:#6b7480;font-size:10px">301307</span></td>
+          <td class="warn">0 中性</td><td class="down">4分 偏空</td><td class="warn">48 持有</td>
+          <td><span class="tag t-bull">主力增持(+3)</span></td>
+          <td class="down">🟡 减仓准备</td><td class="down">减仓为主</td></tr>
+        <tr><td>利民股份<br><span style="color:#6b7480;font-size:10px">002734</span></td>
+          <td class="down">-12 偏空</td><td class="warn">5分 中性</td><td class="warn">43 观望</td>
+          <td><span class="tag t-bear">主力减持(-5)</span></td>
+          <td class="down">🟡 减仓准备</td><td class="down">减仓准备</td></tr>
+      </tbody>
+    </table>
+    <div class="foot">综合共识 = Kronos×30% + Vibe×25% + dSA×20%（TA-CN、TradingAgents 权重 25% 待补）。</div>
+  </div>
+
+  <div class="card">
+    <h2>18 个股票技能 · 应用对照</h2>
+    <table>
+      <thead><tr><th>类别</th><th>技能</th><th>对老顾持仓的作用</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="3">个股快速诊断</td><td>stock-analysis</td><td>每只持仓出决策看板（行情+指标+评分+信号）</td><td><span class="dot todo"></span>可运行</td></tr>
+        <tr><td>stock-analyzer</td><td>东财三维（基本面/新闻/资金面）+买卖价</td><td><span class="dot todo"></span>可运行</td></tr>
+        <tr><td>stock-daily-analysis</td><td>持仓每日分析+大盘复盘</td><td><span class="dot todo"></span>可运行</td></tr>
+        <tr><td rowspan="5">深度研究与估值</td><td>stock-deep-analyzer:uzi</td><td>单只深度研究入口</td><td><span class="dot todo"></span>可运行</td></tr>
+        <tr><td>stock-deep-analyzer:deep-analysis</td><td>22维数据+估值建模（DCF）</td><td><span class="dot todo"></span>可运行</td></tr>
+        <tr><td>stock-deep-analyzer:investor-panel</td><td>65大佬评审打分</td><td><span class="dot todo"></span>可运行</td></tr>
+        <tr><td>equity-researcher</td><td>机构级投研报告</td><td><span class="dot todo"></span>可运行</td></tr>
+        <tr><td>stock-value-analyzer</td><td>三好原则价值分析+反向DCF</td><td><span class="dot todo"></span>可运行</td></tr>
+        <tr><td rowspan="4">选股与策略</td><td>BitSoulStockSkill</td><td>选新票/买卖点计算（非针对持仓）</td><td><span class="dot todo"></span>可运行</td></tr>
+        <tr><td>macd-trend-resonance-stock-picker</td><td>均线+MACD 选股/交易计划</td><td><span class="dot todo"></span>可运行</td></tr>
+        <tr><td>gendangzou-skill</td><td>政策/板块关联（判断持仓所属板块政策面）</td><td><span class="dot todo"></span>可运行</td></tr>
+        <tr><td>stock-analysis-team</td><td>多维度协同研究</td><td><span class="dot todo"></span>可运行</td></tr>
+        <tr><td rowspan="3">数据与量化</td><td>hhxg-market</td><td>融资融券/北向/题材热度数据</td><td><span class="dot run"></span>部分运行</td></tr>
+        <tr><td>tdxquant</td><td>通达信量化（选股/回测/监控）</td><td><span class="dot todo"></span>可运行</td></tr>
+        <tr><td>tdx-formula</td><td>通达信公式生成</td><td><span class="dot todo"></span>可运行</td></tr>
+        <tr><td rowspan="2">专项风控</td><td>stock-deep-analyzer:lhb-analyzer</td><td>龙虎榜游资/机构席位</td><td><span class="dot todo"></span>可运行</td></tr>
+        <tr><td>stock-deep-analyzer:trap-detector</td><td>杀猪盘检测（8信号风险）</td><td><span class="dot todo"></span>可运行</td></tr>
+        <tr><td>本地整合中枢</td><td>panyan（盘眼）</td><td>五工具交叉验证（Kronos+dSA+Vibe+TA-CN+TradingAgents）</td><td><span class="dot run"></span>运行中</td></tr>
+      </tbody>
+    </table>
+    <div class="foot">🟢 已完成 · 🟡 运行中/部分 · ⚪ 可运行（尚未执行）。所有 18 个技能均适用于 A 股持仓。</div>
+  </div>
+
+  <div class="card">
+    <h2>Web 界面导航</h2>
+    <div class="grid">
+      <div class="nav"><div class="t">📈 实时盯盘</div><div class="d">报价3s/分时60s + 今日主力资金流</div><a class="link" href="老顾盯盘.html">打开 →</a></div>
+      <div class="nav"><div class="t">💰 主力资金监控</div><div class="d">五路口径 + 实时资金流</div><a class="link" href="主力资金监控.html">打开 →</a></div>
+      <div class="nav"><div class="t">🔮 盘眼交叉验证</div><div class="d">Kronos+dSA+Vibe 共识</div><a class="link" href="panyan_20260824_1755.html">打开 →</a></div>
+      <div class="nav"><div class="t">📋 明日操作策略</div><div class="d">盘眼五工具报告</div><a class="link" href="panyan_20260824_1719.html">打开 →</a></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>⚡ 明日操作速览</h2>
+    <table>
+      <tr><th>股票</th><th>方向</th><th>触发/止损</th><th>一句话</th></tr>
+      <tr><td>中毅达</td><td class="up">🟢 持有</td><td>止损 7.96</td><td>封板继续拿，炸板减半锁利</td></tr>
+      <tr><td>日久光电</td><td class="up">🟢 持有</td><td>止损 11.30</td><td>回踩 11.3 附近加</td></tr>
+      <tr><td>顺络电子</td><td class="warn">🟡 观望</td><td>止损 45.90</td><td>反弹 48.97 减，破位止损</td></tr>
+      <tr><td>美利信</td><td class="down">🟡 减仓</td><td>止损 49.13</td><td>反弹 53-55 减</td></tr>
+      <tr><td>利民股份</td><td class="down">🟡 减仓</td><td>止损 14.50</td><td>破 14.50 减仓</td></tr>
+    </table>
+  </div>
+</div>
+</body>
+</html>

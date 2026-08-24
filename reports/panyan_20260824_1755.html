@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>盘眼 · 老顾持仓 五工具交叉验证（进行中）2026-08-24</title>
+<style>
+  :root { --bg:#0f1318; --panel:#171c23; --line:#242b34; --txt:#e6edf3; --sub:#8b929c; --up:#f04452; --down:#16a34a; --warn:#fbbf24; --accent:#60a5fa; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--txt); font:14px/1.65 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+  .wrap { max-width:1100px; margin:0 auto; padding:24px 18px 60px; }
+  h1 { font-size:22px; margin:0 0 4px; }
+  .meta { color:var(--sub); font-size:12px; margin-bottom:20px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px; margin-bottom:18px; }
+  .card h2 { font-size:16px; margin:0 0 12px; padding-bottom:8px; border-bottom:1px solid var(--line); }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  th,td { padding:8px 7px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { color:var(--sub); font-weight:600; white-space:nowrap; }
+  .up { color:var(--up); } .down { color:var(--down); } .warn { color:var(--warn); } .accent { color:var(--accent); }
+  .tag { display:inline-block; padding:1px 8px; border-radius:10px; font-size:12px; font-weight:600; white-space:nowrap; }
+  .t-bull { background:rgba(244,68,82,.15); color:var(--up); }
+  .t-neu { background:rgba(96,165,250,.15); color:var(--accent); }
+  .t-bear { background:rgba(22,163,74,.15); color:var(--down); }
+  .op { font-weight:700; }
+  .note { color:var(--sub); font-size:12px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; }
+  .kpi { background:#11161d; border:1px solid var(--line); border-radius:10px; padding:12px; }
+  .kpi .v { font-size:20px; font-weight:700; } .kpi .l { color:var(--sub); font-size:12px; }
+  ul { margin:6px 0; padding-left:18px; } li { margin:3px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🔮 盘眼 · 老顾持仓 · 五工具交叉验证</h1>
+  <div class="meta">2026-08-24 星期一 17:55 CST（盘后）｜ 组合：老顾（laogu）｜ 已完成 Kronos + dSA + Vibe，TA-CN 运行中、TradingAgents 待补</div>
+
+  <div class="card">
+    <h2>五工具执行状态</h2>
+    <table>
+      <tr><th>工具</th><th>权重</th><th>状态</th><th>覆盖</th><th>说明</th></tr>
+      <tr><td>Kronos</td><td>30%</td><td class="up">✅ 已完成</td><td>5/5</td><td>技术面 MA/MACD/RSI/KDJ/布林/量比/评分</td></tr>
+      <tr><td>Vibe</td><td>25%</td><td class="up">✅ 已完成</td><td>5/5</td><td>DeepSeek 综合评分（1-10分）</td></tr>
+      <tr><td>dSA</td><td>20%</td><td class="up">✅ 已完成</td><td>3/5</td><td>多因子评分（日久、中毅达因数据未纳入）</td></tr>
+      <tr><td>TA-CN</td><td>15%</td><td class="warn">⏳ 运行中</td><td>—</td><td>多空辩论，akshare 数据源不稳、偏慢</td></tr>
+      <tr><td>TradingAgents</td><td>10%</td><td class="warn">⏸ 待运行</td><td>—</td><td>历史规律匹配，未启动</td></tr>
+    </table>
+    <p class="note">当前为 3/5 工具（权重合计 75%）的初步结论，TA-CN、TradingAgents 完成后会自动补充更新。</p>
+  </div>
+
+  <div class="card">
+    <h2>📊 综合评分矩阵</h2>
+    <table>
+      <tr><th>股票</th><th>收盘</th><th>Kronos</th><th>Vibe</th><th>dSA</th><th>加权共识(3/5)</th><th>结论</th></tr>
+      <tr><td>中毅达</td><td>8.66</td><td class="up">+18 看多</td><td class="up">8分 看多</td><td>—</td><td class="up">+0.55</td><td><span class="tag t-bull">🟢 持有看多</span></td></tr>
+      <tr><td>日久光电</td><td>12.05</td><td class="up">+23 看多</td><td class="up">7分 看多</td><td>—</td><td class="up">+0.55</td><td><span class="tag t-bull">🟢 持有看多</span></td></tr>
+      <tr><td>顺络电子</td><td>47.66</td><td class="up">+25 看多</td><td class="warn">6分 中性</td><td class="warn">45 持有</td><td class="warn">+0.30</td><td><span class="tag t-neu">🟡 观望偏多</span></td></tr>
+      <tr><td>美利信</td><td>52.82</td><td class="warn">0 中性</td><td class="down">4分 偏空</td><td class="warn">48 持有</td><td class="down">-0.25</td><td><span class="tag t-bear">🟡 减仓准备</span></td></tr>
+      <tr><td>利民股份</td><td>14.59</td><td class="down">-12 偏空</td><td class="warn">5分 中性</td><td class="warn">43 观望</td><td class="down">-0.30</td><td><span class="tag t-bear">🟡 减仓准备</span></td></tr>
+    </table>
+    <p class="note">共识公式：Kronos×0.30 + Vibe×0.25 + dSA×0.20（TA-CN×0.15 + TradingAgents×0.10 待补）。≥+0.35 看多 / -0.15~+0.15 观望 / ≤-0.15 减仓准备。</p>
+  </div>
+
+  <div class="card">
+    <h2>各工具原始结论</h2>
+    <table>
+      <tr><th>股票</th><th>Vibe 评分/开盘方向</th><th>dSA 多因子</th></tr>
+      <tr><td>中毅达</td><td>8分｜惯性高开但分歧加大｜破7.96止盈</td><td>—</td></tr>
+      <tr><td>日久光电</td><td>7分｜平开/冲高回落｜破11.30止盈</td><td>—</td></tr>
+      <tr><td>顺络电子</td><td>6分｜平开震荡｜反弹48.97减仓，破45.90止损</td><td>45 持有｜守MA20 47.67，破45.90止损</td></tr>
+      <tr><td>美利信</td><td>4分｜低开震荡偏弱｜反弹53-55减仓，破49.13止损</td><td>48 持有｜生命线50.95，破50.40减</td></tr>
+      <tr><td>利民股份</td><td>5分｜平开/低开震荡｜破14.50减仓</td><td>43 观望｜防守14.45，反弹15.16减</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>⚡ 明日操作策略（3/5 工具共识）</h2>
+    <table>
+      <tr><th>股票</th><th>方向</th><th>触发/现价</th><th>止损</th><th>理由</th></tr>
+      <tr><td>中毅达</td><td class="op accent">🟢 持有·盯封板</td><td>8.66</td><td>7.96（保本）</td><td>三工具一致看多；4天2板+农化催化；炸板/冲高不封先减半锁利</td></tr>
+      <tr><td>日久光电</td><td class="op accent">🟢 持有·回踩加</td><td>12.05</td><td>11.30（MA20）</td><td>Kronos+Vibe 看多；多头排列+注销回购；RSI超买不追高，回踩11.3加</td></tr>
+      <tr><td>顺络电子</td><td class="op warn">🟡 观望·反弹减</td><td>47.66</td><td>45.90（MA20）</td><td>技术金叉但主力流出+增收不增利；反弹48.97减，破45.90止损</td></tr>
+      <tr><td>利民股份</td><td class="op warn">🟡 减仓准备</td><td>14.59</td><td>14.50（MA20）</td><td>技术死叉偏空；农化催化是唯一支撑；破14.50减仓</td></tr>
+      <tr><td>美利信</td><td class="op down">🟡 减仓为主</td><td>52.82</td><td>49.13（MA20）</td><td>三工具偏空/谨慎；浮亏-7.7%+Q1亏损高负债；反弹53-55减</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>🛡️ 风控检查</h2>
+    <ul>
+      <li>✅ 硬止损（-20%）：无触发，最大单只浮亏 -7.7%（美利信）</li>
+      <li>✅ 组合熔断（-10%）：总浮亏 -1.84%，未触发</li>
+      <li>✅ 集中度：顺络 32.8%、日久 28.0%，均未超 35%</li>
+      <li class="warn">⚠️ 前两大重仓合计 60.8%，集中度偏高</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>数据来源</h2>
+    <p class="note">[Kronos] 腾讯行情日K · [Vibe] DeepSeek 综合判断 · [dSA] 腾讯财经多因子 · [基本面] 财联社/证券之星/东方财富 · 报告为辅助参考，不构成投资建议。TA-CN、TradingAgents 完成后将补充更新。</p>
+  </div>
+</div>
+</body>
+</html>

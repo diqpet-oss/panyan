@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>主力资金监控 · 老顾持仓</title>
+<style>
+  :root { --bg:#0f1318; --panel:#171c23; --line:#242b34; --txt:#e6edf3; --sub:#8b929c; --up:#f04452; --down:#16a34a; --warn:#fbbf24; --accent:#60a5fa; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--txt); font:14px/1.65 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+  .wrap { max-width:1180px; margin:0 auto; padding:22px 16px 60px; }
+  h1 { font-size:21px; margin:0 0 4px; }
+  .meta { color:var(--sub); font-size:12px; margin-bottom:18px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:16px; }
+  .card h2 { font-size:15px; margin:0 0 12px; padding-bottom:8px; border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; }
+  .card h2 .r { font-size:11px; font-weight:400; color:var(--sub); }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  th,td { padding:8px 8px; text-align:left; border-bottom:1px solid var(--line); vertical-align:middle; white-space:nowrap; }
+  th { color:var(--sub); font-weight:600; }
+  .up { color:var(--up); } .down { color:var(--down); } .warn { color:var(--warn); } .accent { color:var(--accent); }
+  .tag { display:inline-block; padding:2px 10px; border-radius:10px; font-size:12px; font-weight:700; }
+  .t-zeng { background:rgba(244,68,82,.16); color:var(--up); }
+  .t-duo { background:rgba(251,191,36,.14); color:var(--warn); }
+  .t-zhong { background:rgba(96,165,250,.14); color:var(--accent); }
+  .t-jian { background:rgba(22,163,74,.16); color:var(--down); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:16px; }
+  .kpi { background:#11161d; border:1px solid var(--line); border-radius:10px; padding:12px; text-align:center; }
+  .kpi .v { font-size:24px; font-weight:700; } .kpi .l { color:var(--sub); font-size:12px; }
+  .sig { display:inline-block; padding:1px 7px; border-radius:6px; font-size:11px; margin:1px; }
+  .s-good { background:rgba(244,68,82,.12); color:var(--up); }
+  .s-bad { background:rgba(22,163,74,.12); color:var(--down); }
+  .s-mid { background:rgba(139,146,156,.12); color:var(--sub); }
+  .bar { height:8px; border-radius:4px; background:#232a33; overflow:hidden; min-width:80px; }
+  .bar i { display:block; height:100%; }
+  .foot { color:var(--sub); font-size:11px; margin-top:10px; line-height:1.7; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>💰 主力资金监控 · 老顾持仓</h1>
+  <div class="meta">五路口径：主力资金流 / 两融 / 股东户数 / 基金持仓 / 龙虎榜 ｜ 数据快照 2026-08-24 盘后</div>
+
+  <div class="grid" id="summary"></div>
+
+  <div class="card">
+    <h2>主力资金综合判断（五路口径）<span class="r">盘后快照，日/季频数据</span></h2>
+    <table id="fundTable">
+      <thead><tr><th>股票</th><th>主力判断</th><th>5日主力净流入</th><th>5日超大单</th><th>10日主力</th><th>两融</th><th>股东户数</th><th>基金持仓</th><th>龙虎榜</th><th>信号</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <div class="foot">综合分 ≥3 主力增持 / ≥1 偏多 / 0 中性 / ≤-1 偏空 / ≤-3 减持。股东户数「减少=筹码集中」偏多，「增加=分散」偏空。北向个股持股明细自 2024-08 起停止披露，已剔除该维度。</div>
+  </div>
+
+  <div class="card">
+    <h2>今日主力资金流（盘中实时）<span class="r" id="ffMeta">加载中…</span></h2>
+    <table>
+      <thead><tr><th>股票</th><th>主力净流入</th><th>超大单</th><th>大单</th><th>中单</th><th>小单</th></tr></thead>
+      <tbody id="ffBody"></tbody>
+    </table>
+    <div class="foot">口径：东方财富实时资金流（主力=超大单+大单），每 30 秒刷新，单位万元。</div>
+  </div>
+</div>
+
+<script>
+const FUND = [
+  {code:"002138", name:"顺络电子", score:-3, label:"主力减持", net5:-3.18, r0:-0.54, net10:1.66, margin:"-4.7%", marginNeg:true, gd:"+50.4% 分散", gdNeg:true, fund:"增仓(101家)", fundGood:true, lhb:"未上榜", sigs:["主力流出","超大单流出","降杠杆","户数分散","基金加仓","未上榜"]},
+  {code:"003015", name:"日久光电", score:0,  label:"中性",     net5:0.03,  r0:0.13,  net10:0.93, margin:"—", gd:"+8.4% 分散", gdNeg:true, fund:"减仓(1家)", fundGood:false, lhb:"未上榜", sigs:["主力流入","超大单流入","数据不足","户数分散","基金减仓","未上榜"]},
+  {code:"002734", name:"利民股份", score:-5, label:"主力减持", net5:-0.85, r0:-0.02, net10:-1.47, margin:"-0.3%", marginNeg:true, gd:"+5.4% 分散", gdNeg:true, fund:"减仓(4家)", fundGood:false, lhb:"未上榜", sigs:["主力流出","超大单流出","降杠杆","户数分散","基金减仓","未上榜"]},
+  {code:"301307", name:"美利信",   score:3,  label:"主力增持", net5:-0.12, r0:0.33,  net10:1.50, margin:"+3.5%", marginNeg:false, gd:"-8.0% 集中", gdNeg:false, fund:"增仓(18家)", fundGood:true, lhb:"未上榜", sigs:["主力流出","超大单流入","加杠杆","户数集中","基金加仓","未上榜"]},
+  {code:"600610", name:"中毅达",   score:2,  label:"偏多",     net5:3.88,  r0:1.59,  net10:3.78, margin:"—", gd:"—", fund:"—", lhb:"未上榜", sigs:["主力流入","超大单流入","数据不足","户数不足","基金不足","未上榜"]},
+];
+
+function tagCls(label){ return label==="主力增持"?"t-zeng":label==="偏多"?"t-duo":label==="中性"?"t-zhong":"t-jian"; }
+function pct(v){ return (v>=0?"+":"")+v.toFixed(2)+"亿"; }
+function cls(v){ return v>0?"up":(v<0?"down":""); }
+
+// 概览
+const cnt = {增持:0,偏多:0,中性:0,减持:0};
+FUND.forEach(f=>{ if(f.label==="主力增持")cnt.增持++; else if(f.label==="偏多")cnt.偏多++; else if(f.label==="中性")cnt.中性++; else cnt.减持++; });
+const summary = document.getElementById("summary");
+summary.innerHTML =
+  `<div class="kpi"><div class="v up">${cnt.增持}</div><div class="l">主力增持</div></div>` +
+  `<div class="kpi"><div class="v warn">${cnt.偏多}</div><div class="l">偏多</div></div>` +
+  `<div class="kpi"><div class="v accent">${cnt.中性}</div><div class="l">中性</div></div>` +
+  `<div class="kpi"><div class="v down">${cnt.减持}</div><div class="l">主力减持</div></div>`;
+
+// 五路口径表
+const tb = document.querySelector("#fundTable tbody");
+FUND.forEach(f=>{
+  const sigHtml = f.sigs.map(s=>{
+    const good = ["主力流入","超大单流入","加杠杆","户数集中","基金加仓"].includes(s);
+    const bad = ["主力流出","超大单流出","降杠杆","户数分散","基金减仓"].includes(s);
+    return `<span class="sig ${good?"s-good":bad?"s-bad":"s-mid"}">${s}</span>`;
+  }).join("");
+  const bar = `<div class="bar"><i style="width:${Math.min(100,Math.abs(f.net5)/4*100)}%;background:${f.net5>=0?"#f04452":"#16a34a"}"></i></div>`;
+  tb.innerHTML += `<tr>
+    <td>${f.name}<br><span style="color:#6b7480;font-size:10px">${f.code}</span></td>
+    <td><span class="tag ${tagCls(f.label)}">${f.label}(${f.score>0?"+":""}${f.score})</span></td>
+    <td class="${cls(f.net5)}">${pct(f.net5)}<br>${bar}</td>
+    <td class="${cls(f.r0)}">${pct(f.r0)}</td>
+    <td class="${cls(f.net10)}">${pct(f.net10)}</td>
+    <td class="${f.marginNeg?"down":(f.margin!=="—"?"up":"")}">${f.margin}</td>
+    <td class="${f.gdNeg?"down":(f.gd!=="—"?"up":"")}">${f.gd}</td>
+    <td class="${f.fundGood?"up":(f.fund!=="—"?"down":"")}">${f.fund}</td>
+    <td>${f.lhb}</td>
+    <td>${sigHtml}</td>
+  </tr>`;
+});
+
+// 实时资金流（东财 push2 JSONP）
+const ffCache = {};
+window.cbFF = (payload) => {
+  try {
+    if (!payload || !payload.data || !payload.data.klines || !payload.data.klines.length) return;
+    const last = payload.data.klines[payload.data.klines.length-1].split(",");
+    if (last.length < 6) return;
+    ffCache[payload.data.code] = { main:+last[1], small:+last[2], mid:+last[3], big:+last[4], superBig:+last[5] };
+    renderFF();
+  } catch(e){}
+};
+function renderFF(){
+  const tb2 = document.getElementById("ffBody"); if(!tb2) return;
+  tb2.innerHTML = "";
+  const fmt = v => (v>=0?"+":"")+(v/10000).toFixed(0)+"万";
+  const cell = v => v==null?"<td>—</td>":`<td class="${v>0?"up":(v<0?"down":"")}">${fmt(v)}</td>`;
+  FUND.forEach(f=>{
+    const d = ffCache[f.code];
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${f.name}<br><span style="color:#6b7480;font-size:10px">${f.code}</span></td>` + cell(d?d.main:null) + cell(d?d.superBig:null) + cell(d?d.big:null) + cell(d?d.mid:null) + cell(d?d.small:null);
+    tb2.appendChild(tr);
+  });
+  const m = document.getElementById("ffMeta");
+  if(m) m.textContent = "最后更新 " + new Date().toLocaleTimeString("zh-CN",{hour12:false});
+}
+function loadScript(src){
+  return new Promise(res=>{ const s=document.createElement("script"); s.src=src; s.onload=()=>{s.remove();res();}; s.onerror=()=>{s.remove();res();}; document.head.appendChild(s); });
+}
+function refreshFF(){
+  FUND.forEach(f=>{
+    const secid = (f.code.startsWith("6")?"1.":"0.")+f.code;
+    loadScript("https://push2.eastmoney.com/api/qt/stock/fflow/kline/get?lmt=0&klt=1&secid="+secid+"&fields1=f1,f2,f3,f7&fields2=f51,f52,f53,f54,f55,f56&ut=b2884a393a59ad64002292a3e90d46a5&cb=cbFF");
+  });
+}
+refreshFF();
+setInterval(refreshFF, 30000);
+</script>
+</body>
+</html>

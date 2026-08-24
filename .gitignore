@@ -40,3 +40,7 @@ Thumbs.db
 
 # 输出报告（仅根目录）
 /*.html
+!/index.html
+
+# 盘眼缓存
+reports/.weipan_cache/

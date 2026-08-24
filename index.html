@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>盘眼 · 股票分析系统</title>
+<style>
+  :root { --bg:#0f1318; --panel:#171c23; --line:#242b34; --txt:#e6edf3; --sub:#8b929c; --up:#f04452; --down:#16a34a; --accent:#60a5fa; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--txt); font:15px/1.6 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+  .wrap { max-width:760px; margin:0 auto; padding:40px 20px; }
+  h1 { font-size:24px; margin:0 0 6px; }
+  .sub { color:var(--sub); margin-bottom:28px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px 20px; margin-bottom:14px; display:block; color:var(--txt); text-decoration:none; }
+  .card:hover { border-color:var(--accent); }
+  .card .t { font-size:16px; font-weight:700; }
+  .card .d { color:var(--sub); font-size:13px; margin-top:3px; }
+  .arrow { float:right; color:var(--accent); font-weight:700; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🔮 盘眼 · 股票分析系统</h1>
+  <div class="sub">老顾持仓 · 实时盯盘 + 主力资金 + 多工具交叉验证</div>
+
+  <a class="card" href="reports/老顾持仓_工具中心.html"><span class="arrow">→</span>
+    <div class="t">📌 工具应用中心</div>
+    <div class="d">持仓 × 18技能 结果矩阵 + 页面导航</div>
+  </a>
+  <a class="card" href="reports/老顾盯盘.html"><span class="arrow">→</span>
+    <div class="t">📈 实时盯盘</div>
+    <div class="d">报价 3s / 分时 60s / 今日主力资金流 30s 自动刷新</div>
+  </a>
+  <a class="card" href="reports/主力资金监控.html"><span class="arrow">→</span>
+    <div class="t">💰 主力资金监控</div>
+    <div class="d">五路口径综合判断 + 实时资金流</div>
+  </a>
+  <a class="card" href="reports/panyan_20260824_1755.html"><span class="arrow">→</span>
+    <div class="t">🔮 盘眼交叉验证</div>
+    <div class="d">Kronos + dSA + Vibe 加权共识</div>
+  </a>
+  <a class="card" href="reports/panyan_20260824_1719.html"><span class="arrow">→</span>
+    <div class="t">📋 明日操作策略</div>
+    <div class="d">盘眼五工具报告（含江恩/风控/基本面）</div>
+  </a>
+</div>
+</body>
+</html>
