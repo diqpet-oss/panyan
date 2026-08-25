@@ -32,9 +32,11 @@
   .dir-why { color:#8b929c; font-size:10px; }
   .flash { animation: blink 1s infinite; }
   @keyframes blink { 50% { opacity:.35; } }
+  @media(max-width:640px){table{display:block;overflow-x:auto;white-space:nowrap}body{font-size:15px}}
 </style>
 </head>
 <body>
+<nav class="topnav" style="position:sticky;top:0;z-index:100;display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;background:rgba(23,28,35,.96);backdrop-filter:blur(8px);border-bottom:1px solid #242b34;padding:10px 14px;margin-bottom:10px"><a href="../index.html" style="flex:0 0 auto;padding:9px 16px;border-radius:20px;font-size:14px;white-space:nowrap;color:#e6edf3;text-decoration:none;background:#11161d;border:1px solid #242b34">盘眼</a><a class="active" href="老顾盯盘.html" style="flex:0 0 auto;padding:9px 16px;border-radius:20px;font-size:14px;white-space:nowrap;color:#0f1318;text-decoration:none;background:#60a5fa;border:1px solid #60a5fa;font-weight:700">盯盘</a><a href="主力资金监控.html" style="flex:0 0 auto;padding:9px 16px;border-radius:20px;font-size:14px;white-space:nowrap;color:#e6edf3;text-decoration:none;background:#11161d;border:1px solid #242b34">资金</a><a href="操作策略.html" style="flex:0 0 auto;padding:9px 16px;border-radius:20px;font-size:14px;white-space:nowrap;color:#e6edf3;text-decoration:none;background:#11161d;border:1px solid #242b34">策略</a><a href="panyan_20260825.html" style="flex:0 0 auto;padding:9px 16px;border-radius:20px;font-size:14px;white-space:nowrap;color:#e6edf3;text-decoration:none;background:#11161d;border:1px solid #242b34">交叉验证</a><a href="老顾持仓_工具中心.html" style="flex:0 0 auto;padding:9px 16px;border-radius:20px;font-size:14px;white-space:nowrap;color:#e6edf3;text-decoration:none;background:#11161d;border:1px solid #242b34">工具</a></nav>
 <h1>老顾持仓实时盯盘</h1>
 <span class="meta" id="meta">自动刷新（报价3s / 分时60s）｜双击标题暂停</span>
 <div class="indices" id="indices">加载中…</div>

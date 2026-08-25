@@ -29,9 +29,14 @@
   .focus .ic { flex:0 0 auto; }
   .focus .t { font-weight:700; }
   .focus .d { color:var(--sub); font-size:12px; }
+  .topnav{position:sticky;top:0;z-index:100;display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;background:rgba(23,28,35,.96);backdrop-filter:blur(8px);border-bottom:1px solid #242b34;padding:10px 14px;margin-bottom:14px}
+  .topnav a{flex:0 0 auto;padding:9px 16px;border-radius:20px;font-size:14px;white-space:nowrap;color:#e6edf3;text-decoration:none;background:#11161d;border:1px solid #242b34}
+  .topnav a.active{background:#60a5fa;color:#0f1318;border-color:#60a5fa;font-weight:700}
+  @media(max-width:640px){table{display:block;overflow-x:auto;white-space:nowrap}body{font-size:15px}}
 </style>
 </head>
 <body>
+<nav class="topnav"><a href="../index.html">盘眼</a><a href="老顾盯盘.html">盯盘</a><a href="主力资金监控.html">资金</a><a class="active" href="操作策略.html">策略</a><a href="panyan_20260825.html">交叉验证</a><a href="老顾持仓_工具中心.html">工具</a></nav>
 <div class="wrap">
   <h1>🎯 操作策略 · 老顾持仓</h1>
   <div class="meta">2026-08-25 星期二 11:39 CST（上午盘）｜ Kronos + Vibe + 主力资金 综合判断</div>
