@@ -2,11 +2,13 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>老顾持仓实时盯盘</title>
 <style>
-  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background:#0f1115; color:#e6e8eb; margin:0; padding:14px; }
-  h1 { font-size:16px; margin:0; display:inline; cursor:pointer; }
-  .meta { color:#8b929c; font-size:12px; margin:8px 0; }
+  :root { --bg:#0f1318; --panel:#171c23; --line:#242b34; --txt:#e6edf3; --sub:#8b929c; --up:#f04452; --down:#16a34a; --warn:#fbbf24; --accent:#60a5fa; }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background:var(--bg); color:var(--txt); margin:0; padding:14px; }
+  h1 { font-size:18px; margin:0; display:inline; cursor:pointer; }
+  .meta { color:var(--sub); font-size:12px; margin:8px 0; }
   .indices { font-size:13px; margin-bottom:8px; color:#c9cdd4; }
   .banner { padding:6px 10px; border-radius:5px; margin-bottom:10px; font-size:13px; font-weight:600; }
   .banner.danger { background:#2a1518; color:#ff8b96; }
@@ -14,22 +16,22 @@
   .banner.warn { background:#241c10; color:#fcd34d; }
   .banner.hold { background:#121c2e; color:#93c5fd; }
   table { width:100%; border-collapse:collapse; font-size:13px; }
-  th, td { padding:6px 8px; text-align:right; border-bottom:1px solid #232830; white-space:nowrap; }
+  th, td { padding:6px 8px; text-align:right; border-bottom:1px solid var(--line); white-space:nowrap; }
   th:first-child, td:first-child { text-align:left; }
-  th { color:#8b929c; font-weight:500; }
-  .up { color:#ff4d4f; }
-  .down { color:#00c48c; }
+  th { color:var(--sub); font-weight:500; }
+  .up { color:var(--up); }
+  .down { color:var(--down); }
   tr.stop td { background:#2a1518; }
   tr.half td { background:#10271c; }
   canvas { display:block; margin-left:auto; width:200px; height:52px; background:#0b0e13; border-radius:3px; }
-  .total td { font-weight:700; border-top:2px solid #3a4250; }
-  .foot { margin-top:10px; color:#8b929c; font-size:12px; }
+  .total td { font-weight:700; border-top:2px solid var(--line); }
+  .foot { margin-top:10px; color:var(--sub); font-size:12px; }
   .dir-main { font-weight:700; font-size:12px; }
   .dir-main.danger { color:#ff5c6c; }
   .dir-main.take { color:#34d399; }
-  .dir-main.warn { color:#fbbf24; }
-  .dir-main.hold { color:#60a5fa; }
-  .dir-why { color:#8b929c; font-size:10px; }
+  .dir-main.warn { color:var(--warn); }
+  .dir-main.hold { color:var(--accent); }
+  .dir-why { color:var(--sub); font-size:10px; }
   .flash { animation: blink 1s infinite; }
   @keyframes blink { 50% { opacity:.35; } }
   @media(max-width:640px){table{display:block;overflow-x:auto;white-space:nowrap}body{font-size:15px}}
