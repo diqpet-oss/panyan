@@ -2,15 +2,15 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>操作策略 · 老顾持仓 2026-08-25</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>操作策略 · 老顾持仓 2026-08-26 盘前</title>
 <style>
   :root { --bg:#0f1318; --panel:#171c23; --line:#242b34; --txt:#e6edf3; --sub:#8b929c; --up:#f04452; --down:#16a34a; --warn:#fbbf24; --accent:#60a5fa; }
-  * { box-sizing:border-box; }
-  body { margin:0; background:var(--bg); color:var(--txt); font:14px/1.7 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
-  .wrap { max-width:980px; margin:0 auto; padding:24px 16px 60px; }
-  h1 { font-size:22px; margin:0 0 4px; }
-  .meta { color:var(--sub); font-size:12px; margin-bottom:16px; }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { margin:0; background:var(--bg); color:var(--txt); font:15px/1.7 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+  .wrap { max-width:980px; margin:0 auto; padding:12px 16px 60px; }
+  h1 { font-size:21px; margin:0 0 4px; }
+  .meta { color:var(--sub); font-size:12px; margin-bottom:14px; }
   .card { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:16px; }
   .card h2 { font-size:15px; margin:0 0 10px; padding-bottom:8px; border-bottom:1px solid var(--line); }
   table { width:100%; border-collapse:collapse; font-size:13px; }
@@ -29,7 +29,7 @@
   .focus .ic { flex:0 0 auto; }
   .focus .t { font-weight:700; }
   .focus .d { color:var(--sub); font-size:12px; }
-  .topnav{position:sticky;top:0;z-index:100;display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;background:rgba(23,28,35,.96);backdrop-filter:blur(8px);border-bottom:1px solid #242b34;padding:10px 14px;margin-bottom:14px}
+  .topnav{position:sticky;top:0;z-index:100;display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;background:rgba(23,28,35,.96);backdrop-filter:blur(8px);border-bottom:1px solid #242b34;padding:10px 14px;margin:0 -16px 14px}
   .topnav a{flex:0 0 auto;padding:9px 16px;border-radius:20px;font-size:14px;white-space:nowrap;color:#e6edf3;text-decoration:none;background:#11161d;border:1px solid #242b34}
   .topnav a.active{background:#60a5fa;color:#0f1318;border-color:#60a5fa;font-weight:700}
   @media(max-width:640px){table{display:block;overflow-x:auto;white-space:nowrap}body{font-size:15px}}
@@ -39,87 +39,83 @@
 <nav class="topnav"><a href="../index.html">盘眼</a><a href="老顾盯盘.html">盯盘</a><a href="主力资金监控.html">资金</a><a class="active" href="操作策略.html">策略</a><a href="panyan_20260825.html">交叉验证</a><a href="老顾持仓_工具中心.html">工具</a></nav>
 <div class="wrap">
   <h1>🎯 操作策略 · 老顾持仓</h1>
-  <div class="meta">2026-08-25 星期二 收盘 ｜ 4 只持仓（中毅达已清仓）｜ Kronos + Vibe + 主力资金</div>
+  <div class="meta">2026-08-26 星期三 09:27 盘前 ｜ 4 只持仓 ｜ Kronos + Vibe + 主力资金</div>
 
   <div class="card">
-    <h2>这份策略的时效性说明</h2>
+    <h2>今日盘前要点</h2>
     <div class="callout">
-      操作策略是「<b>当下时点 + 中短期趋势</b>」的结合，不是盘中秒级实时，也不是纯长期判断：
-      <br>· <b>现价、涨跌幅、今日资金流</b> —— 当下实时快照，盘中会变
-      <br>· <b>MA / MACD / RSI / KDJ</b> —— 基于过去 5/10/20/60 日 K 线算出的中短期趋势
-      <br>· <b>主力资金</b> —— 5日/10日累计 + 日频/季频数据
-      <br>· <b>操作建议</b> —— 面向「当日 + 未来 1～3 个交易日」，数据刷新一次就更新一次
+      <b>利民股份 MACD 刚金叉、评分转正到 +24 看多</b>，是今日四只里「技术面 + 基本面」共振最清晰的一只，可作为核心关注；站稳 15.00 可轻仓加。
+      <br><b>美利信</b>仍是最弱环节（浮亏 -8.4%），反弹减仓、不补仓。
     </div>
-    <p class="note">本页为今日收盘（15:40）的快照，明日开盘前以此为准，盘中价格变动（尤其止损位附近）需重新确认。</p>
+    <p class="note">操作策略是「当下时点 + 中短期趋势」结合：现价为盘前集合竞价/最新价，MA/MACD/RSI 基于过去 5/10/20/60 日 K 线，主力资金为 5/10 日累计。盘中价格变动需重新确认。</p>
   </div>
 
   <div class="card">
     <h2>组合概览</h2>
     <div class="grid">
       <div class="kpi"><div class="l">持仓数量</div><div class="v">4 只</div></div>
-      <div class="kpi"><div class="l">收盘市值</div><div class="v">¥178,555</div></div>
-      <div class="kpi"><div class="l">累计浮盈亏</div><div class="v down">-¥2,892 (-1.59%)</div></div>
-      <div class="kpi"><div class="l">最大浮盈</div><div class="v up">日久 +1.2%</div></div>
+      <div class="kpi"><div class="l">盘前市值</div><div class="v">¥177,980</div></div>
+      <div class="kpi"><div class="l">累计浮盈亏</div><div class="v down">-¥3,467 (-1.91%)</div></div>
+      <div class="kpi"><div class="l">今日重点</div><div class="v up">利民 +2.2%</div></div>
     </div>
   </div>
 
   <div class="card">
     <h2>逐只操作指令</h2>
     <table>
-      <tr><th>股票</th><th>现价</th><th>浮盈亏</th><th>方向</th><th>止损/减仓线</th><th>理由</th></tr>
+      <tr><th>股票</th><th>盘前</th><th>浮盈亏</th><th>方向</th><th>止损/触发</th><th>理由</th></tr>
+      <tr>
+        <td>利民股份<br><span style="color:#6b7480;font-size:10px">002734</span></td>
+        <td>15.00</td><td class="up">+2.2%</td>
+        <td class="op accent">🟢 核心持有·轻仓加</td>
+        <td>止损 14.67</td>
+        <td>MACD 刚金叉 + 农化催化，技术+基本面共振；站稳 15 可轻仓加。</td>
+      </tr>
       <tr>
         <td>日久光电<br><span style="color:#6b7480;font-size:10px">003015</span></td>
-        <td>12.23</td><td class="up">+1.2%</td>
-        <td class="op accent">🟢 持有·回踩加</td>
-        <td>破 12.00 止盈</td>
-        <td>多头排列最健康、浮盈 1.2%；不追高，回踩 11.38 不破可加，破 12 锁利。</td>
+        <td>12.19</td><td class="up">+0.9%</td>
+        <td class="op accent">🟢 持有让利润跑</td>
+        <td>破 11.47 止盈</td>
+        <td>多头排列最强、MACD 金叉；RSI 74 超买不追高，靠止盈保护浮盈。</td>
       </tr>
       <tr>
         <td>顺络电子<br><span style="color:#6b7480;font-size:10px">002138</span></td>
-        <td>47.49</td><td class="down">-3.0%</td>
+        <td>47.00</td><td class="down">-4.2%</td>
         <td class="op warn">🟡 观望·反弹减</td>
-        <td>破 46.13 减仓</td>
-        <td>J 超卖有反抽，但主力 5 日流出 3.18 亿、量价背离；反弹 48 附近减，破 MA20 减仓。</td>
+        <td>破 46.46 止损</td>
+        <td>弱修复、缺资金（主力流出）；反弹 49 附近减半，破 MA20 止损。</td>
       </tr>
       <tr>
         <td>美利信<br><span style="color:#6b7480;font-size:10px">301307</span></td>
-        <td>52.55</td><td class="down">-8.2%</td>
+        <td>52.45</td><td class="down">-8.4%</td>
         <td class="op down">🟡 减仓为主</td>
-        <td>破 49.02 止损</td>
-        <td>放量博反抽但基本面不支撑反转；反弹 53-54 减仓，不摊薄，破 49.02 止损。</td>
-      </tr>
-      <tr>
-        <td>利民股份<br><span style="color:#6b7480;font-size:10px">002734</span></td>
-        <td>14.91</td><td class="up">+1.6%</td>
-        <td class="op warn">🟡 持有·站稳 MA20</td>
-        <td>破 14.57 减仓</td>
-        <td>浮盈转正、站稳 MA20，农化催化托底；但 MACD 死叉，以 MA20 为多空分界。</td>
+        <td>破 49.31 止损</td>
+        <td>弱反弹、强隐患（Q1 亏损+高负债）；反弹减仓，不补仓不摊薄。</td>
       </tr>
     </table>
   </div>
 
   <div class="card">
-    <h2>我的关注点（重点盯这些）</h2>
-    <div class="focus"><div class="ic">🎯</div><div class="t">趋势方向<br><span class="d">每只票当前是「继续持有」还是「该走」，是本页第一优先级。</span></div></div>
-    <div class="focus"><div class="ic">🛑</div><div class="t">止损纪律<br><span class="d">每只都有明确的止损线，破了就执行，不补仓、不摊薄（尤其美利信）。</span></div></div>
-    <div class="focus"><div class="ic">💰</div><div class="t">主力资金动向<br><span class="d">顺络 5 日净流出 3.18 亿是最大背离，反弹别追。</span></div></div>
-    <div class="focus"><div class="ic">📉</div><div class="t">封板/炸板风险<br><span class="d">中毅达已获利了结，后续关注资金回流方向。</span></div></div>
-    <div class="focus"><div class="ic">📊</div><div class="t">浮亏控制<br><span class="d">美利信浮亏 -8.2%，反弹 53-54 优先减仓降风险。</span></div></div>
-    <div class="focus"><div class="ic">🔁</div><div class="t">加仓/减仓时机<br><span class="d">日久回踩不破可加；美利信、顺络反弹减；不追高、不抄底。</span></div></div>
+    <h2>我的关注点（今日重点盯这些）</h2>
+    <div class="focus"><div class="ic">⭐</div><div class="t">利民股份 MACD 金叉<br><span class="d">今日最重要信号；站稳 15.00 可轻仓加，破 14.67 止损。</span></div></div>
+    <div class="focus"><div class="ic">📊</div><div class="t">美利信浮亏控制<br><span class="d">浮亏 -8.4%，反弹减仓，若扩大到 -15% 无条件砍半仓。</span></div></div>
+    <div class="focus"><div class="ic">💰</div><div class="t">顺络主力资金背离<br><span class="d">技术金叉但主力资金流出，反弹别追，破 MA20 走。</span></div></div>
+    <div class="focus"><div class="ic">📉</div><div class="t">日久超买回踩<br><span class="d">RSI 74 超买，不追高；跌破 11.47 止盈锁利。</span></div></div>
+    <div class="focus"><div class="ic">🔁</div><div class="t">加减仓节奏<br><span class="d">利民轻仓加、日久持股、顺络/美利信反弹减。</span></div></div>
   </div>
 
   <div class="card">
     <h2>⚠️ 今日特别提醒</h2>
     <div class="callout warn">
-      <b>中毅达</b>：已清仓获利了结（约 +¥780），释放资金。<br>
-      <b>利民股份</b>：浮盈转正 +1.6%、站稳 MA20，但 MACD 仍死叉，以 14.57 为多空分界。<br>
-      <b>美利信</b>：浮亏 -8.2%，若扩大到 -15% 需无条件砍到半仓。
+      <b>利民股份</b>：MACD 刚金叉，是唯一可加仓的票；站稳 15.00 确认后再动。<br>
+      <b>美利信</b>：浮亏 -8.4%，反弹到 53 附近减仓，不恋战。<br>
+      <b>顺络电子</b>：盘前低开（47.00 vs 昨收 47.49），若低开不破 46.46 可持股看反抽。
     </div>
   </div>
 
   <div class="card">
     <h2>数据来源</h2>
-    <p class="note">[Kronos] 腾讯行情日K（收盘 15:40） · [Vibe] DeepSeek 综合判断 · [主力资金] 新浪/两融/股东户数/基金/龙虎榜（08-25）。报告为辅助参考，不构成投资建议。</p>
+    <p class="note">[Kronos] 腾讯行情日K（盘前 09:27） · [Vibe] DeepSeek 综合判断 · [主力资金] 新浪/两融/股东户数/基金/龙虎榜（08-25）。报告为辅助参考，不构成投资建议。</p>
   </div>
 </div>
 </body>
