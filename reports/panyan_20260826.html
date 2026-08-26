@@ -55,12 +55,25 @@
     <table>
       <tr><th>股票</th><th>收盘</th><th>浮盈亏</th><th>Kronos</th><th>Vibe</th><th>主力资金</th><th>加权共识</th><th>结论</th></tr>
       <tr><td>日久光电</td><td>12.07</td><td class="down">-0.1%</td><td class="up">+25 看多</td><td class="up">7分 看多</td><td><span class="tag t-bear">主力减持(-4)</span></td><td class="up">+0.55</td><td><span class="tag t-bull">🟢 持有看多</span></td></tr>
-      <tr><td>美利信</td><td>52.34</td><td class="down">-8.6%</td><td class="up">+15 看多</td><td class="warn">5分 中性</td><td><span class="tag t-bear">偏空(-1)</span></td><td class="warn">+0.30</td><td><span class="tag t-neu">🟡 观望偏多</span></td></tr>
+      <tr><td>美利信</td><td>52.34</td><td class="down">-8.6%</td><td class="up">+15 看多</td><td class="warn">5分 中性</td><td><span class="tag t-bear">偏空(-1)</span></td><td class="warn">+0.10</td><td><span class="tag t-neu">🟡 观望</span></td></tr>
       <tr><td>顺络电子</td><td>46.89</td><td class="down">-4.4%</td><td class="warn">0 中性</td><td class="warn">6分 中性</td><td><span class="tag t-bear">偏空(-1)</span></td><td class="warn">0.00</td><td><span class="tag t-neu">🟡 观望</span></td></tr>
       <tr><td>利民股份</td><td>15.60</td><td class="up">+6.3%</td><td class="warn">+1 中性</td><td class="warn">6分 中性</td><td><span class="tag t-bear">偏空(-1)</span></td><td class="warn">0.00</td><td><span class="tag t-neu">🟡 观望</span></td></tr>
-      <tr><td>恒瑞医药</td><td>46.74</td><td class="down">-0.6%</td><td class="down">-12 偏空</td><td class="warn">—</td><td><span class="tag t-bear">偏空(-2)</span></td><td class="down">-0.30</td><td><span class="tag t-bear">🟡 超跌博弈</span></td></tr>
+      <tr><td>恒瑞医药</td><td>46.74</td><td class="down">-0.6%</td><td class="down">-12 偏空</td><td class="warn">—</td><td><span class="tag t-bear">偏空(-2)</span></td><td class="down">-0.50</td><td><span class="tag t-bear">🔴 观望·谨慎</span></td></tr>
     </table>
-    <p class="note">共识 = Kronos×0.30 + Vibe×0.25（dSA/TA-CN/TradingAgents 未纳入本轮）。≥+0.35 看多 / -0.15~+0.15 观望 / ≤-0.15 减仓准备。</p>
+    <p class="note">共识 = Kronos×0.30 + Vibe×0.25 + dSA×0.20 + TA-CN×0.15 + TradingAgents×0.10（TradingAgents 未完成按 0 计）。≥+0.35 看多 / -0.15~+0.15 观望 / ≤-0.15 减仓准备。</p>
+  </div>
+
+  <div class="card">
+    <h2>各工具原始结论（dSA / TA-CN）</h2>
+    <table>
+      <tr><th>股票</th><th>dSA 多因子</th><th>TA-CN 多空辩论</th></tr>
+      <tr><td>利民股份</td><td class="warn">55 持有（止损14.70/目标15.94）</td><td>持有（数据质量待确认）</td></tr>
+      <tr><td>日久光电</td><td class="warn">51 持有（止损11.50/目标12.50）</td><td>持有</td></tr>
+      <tr><td>恒瑞医药</td><td class="down">45 观望·看空（止损44.50）</td><td>持有</td></tr>
+      <tr><td>顺络电子</td><td class="warn">42 观望（止损45.50）</td><td>持有</td></tr>
+      <tr><td>美利信</td><td class="down">40 观望·看空（止损50.50）</td><td>持有</td></tr>
+    </table>
+    <p class="note">⚠️ TA-CN 本轮使用的行情数据存在偏差（辩论中出现与现价不符的价位），其结论仅供参考；TradingAgents 未跑完，未纳入。</p>
   </div>
 
   <div class="card">
@@ -71,7 +84,7 @@
       <tr><td>日久光电</td><td class="op accent">🟢 持有·守 12 元</td><td>12.07</td><td>破 12.00 保本</td><td>多头最强但 RSI 72.7 超买，守 12 元防由赚转亏</td></tr>
       <tr><td>顺络电子</td><td class="op warn">🟡 持有·转强待验证</td><td>46.89</td><td>放量破 46.00 降仓</td><td>超大单转正但 5 日主力仍流出，反弹 49 减</td></tr>
       <tr><td>美利信</td><td class="op warn">🟡 反弹减仓为主</td><td>52.34</td><td>破 49.18 止损</td><td>浮亏 -8.6% 收窄，但基本面硬伤，反弹 54-55 减</td></tr>
-      <tr><td>恒瑞医药</td><td class="op warn">🟡 新建仓·超跌博弈</td><td>46.74</td><td>破 45.63 止损</td><td>空头排列+RSI 25 超卖抄底，控制仓位</td></tr>
+      <tr><td>恒瑞医药</td><td class="op warn">🟡 新建仓·谨慎持有</td><td>46.74</td><td>破 45.63 止损</td><td>空头+RSI 25 超卖抄底，dSA 亦看空，仓位从严</td></tr>
     </table>
   </div>
 
