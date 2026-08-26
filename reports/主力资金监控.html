@@ -43,7 +43,7 @@
 <nav class="topnav"><a href="../index.html">盘眼</a><a href="老顾盯盘.html">盯盘</a><a class="active" href="主力资金监控.html">资金</a><a href="操作策略.html">策略</a><a href="panyan_20260826.html">交叉验证</a><a href="老顾持仓_工具中心.html">工具</a></nav>
 <div class="wrap">
   <h1>💰 主力资金监控 · 老顾持仓</h1>
-  <div class="meta">五路口径：主力资金流 / 两融 / 股东户数 / 基金持仓 / 龙虎榜 ｜ 数据快照 2026-08-25</div>
+  <div class="meta">五路口径：主力资金流 / 两融 / 股东户数 / 基金持仓 / 龙虎榜 ｜ 数据快照 2026-08-26 收盘</div>
 
   <div class="grid" id="summary"></div>
 
@@ -68,11 +68,10 @@
 
 <script>
 const FUND = [
-  {code:"002138", name:"顺络电子", score:-1, label:"偏空",     net5:-3.18, r0:-0.54, net10:1.66, margin:"+0.8%", marginNeg:false, gd:"+50.4% 分散", gdNeg:true, fund:"增仓(101家)", fundGood:true, lhb:"未上榜", sigs:["主力流出","超大单流出","加杠杆","户数分散","基金加仓","未上榜"]},
-  {code:"003015", name:"日久光电", score:0,  label:"中性",     net5:0.03,  r0:0.13,  net10:0.93, margin:"—", gd:"+8.4% 分散", gdNeg:true, fund:"减仓(1家)", fundGood:false, lhb:"未上榜", sigs:["主力流入","超大单流入","数据不足","户数分散","基金减仓","未上榜"]},
-  {code:"002734", name:"利民股份", score:-3, label:"主力减持", net5:-0.85, r0:-0.02, net10:-1.47, margin:"+0.6%", marginNeg:false, gd:"+5.4% 分散", gdNeg:true, fund:"减仓(4家)", fundGood:false, lhb:"未上榜", sigs:["主力流出","超大单流出","加杠杆","户数分散","基金减仓","未上榜"]},
-  {code:"301307", name:"美利信",   score:-1, label:"偏空",     net5:-0.12, r0:0.33,  net10:1.50, margin:"-2.5%", marginNeg:true, gd:"+24.1% 分散", gdNeg:true, fund:"增仓(21家)", fundGood:true, lhb:"未上榜", sigs:["主力流出","超大单流入","降杠杆","户数分散","基金加仓","未上榜"]},
-  {code:"600610", name:"中毅达",   score:2,  label:"偏多",     net5:3.88,  r0:1.59,  net10:3.78, margin:"—", gd:"—", fund:"—", lhb:"未上榜", sigs:["主力流入","超大单流入","数据不足","户数不足","基金不足","未上榜"]},
+  {code:"002138", name:"顺络电子", score:-1, label:"偏空",     net5:-0.61, r0:1.67,  net10:-0.13, margin:"-2.1%", marginNeg:true, gd:"+50.4% 分散", gdNeg:true, fund:"增仓(103家)", fundGood:true, lhb:"未上榜", sigs:["主力流出","超大单流入","降杠杆","户数分散","基金加仓","未上榜"]},
+  {code:"003015", name:"日久光电", score:-4, label:"主力减持", net5:-0.11, r0:-0.03, net10:0.39,  margin:"—", gd:"+8.4% 分散", gdNeg:true, fund:"减仓(1家)", fundGood:false, lhb:"未上榜", sigs:["主力流出","超大单流出","数据不足","户数分散","基金减仓","未上榜"]},
+  {code:"002734", name:"利民股份", score:-1, label:"偏空",     net5:0.22,  r0:0.54,  net10:-0.37, margin:"-1.9%", marginNeg:true, gd:"+5.4% 分散", gdNeg:true, fund:"减仓(4家)", fundGood:false, lhb:"未上榜", sigs:["主力流入","超大单流入","降杠杆","户数分散","基金减仓","未上榜"]},
+  {code:"301307", name:"美利信",   score:-1, label:"偏空",     net5:-0.58, r0:-0.07, net10:-0.09, margin:"+0.3%", marginNeg:false, gd:"+24.1% 分散", gdNeg:true, fund:"增仓(21家)", fundGood:true, lhb:"未上榜", sigs:["主力流出","超大单流出","加杠杆","户数分散","基金加仓","未上榜"]},
 ];
 
 function tagCls(label){ return label==="主力增持"?"t-zeng":label==="偏多"?"t-duo":label==="中性"?"t-zhong":"t-jian"; }
