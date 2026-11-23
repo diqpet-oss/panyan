@@ -54,9 +54,13 @@
 
 <script>
 const POS = [
-  {code:"600276", sym:"sh600276", name:"恒瑞医药", cost:46.97,  shares:1100, stop:45.56,  sellHalf:49.32,  tshares:0, tcost:0, plan:"1100股(可卖900)，成本46.97，加200股"},
-  {code:"600596", sym:"sh600596", name:"新安股份", cost:10.95,  shares:2100, stop:10.62,  sellHalf:11.50,  tshares:0, tcost:0, plan:"2100股(可卖1800)，成本10.95，新建仓"},
-  {code:"002984", sym:"sz002984", name:"森麒麟",   cost:14.06,  shares:1300, stop:13.64,  sellHalf:14.76,  tshares:0, tcost:0, plan:"1300股，成本14.06，新建仓"},
+  {code:"300373", sym:"sz300373", name:"扬杰科技", cost:66.587, shares:2300, stop:64.59, sellHalf:69.92, tshares:0, tcost:0, plan:"2300股，成本66.587，半导体功率器件"},
+  {code:"000977", sym:"sz000977", name:"浪潮信息", cost:48.597, shares:2200, stop:47.14, sellHalf:51.03, tshares:0, tcost:0, plan:"2200股，成本48.597，AI服务器"},
+  {code:"300483", sym:"sz300483", name:"首华燃气", cost:18.742, shares:4800, stop:18.18, sellHalf:19.68, tshares:0, tcost:0, plan:"4800股，成本18.742，燃气"},
+  {code:"300502", sym:"sz300502", name:"新易盛",   cost:153.407, shares:500, stop:148.80, sellHalf:161.08, tshares:0, tcost:0, plan:"500股，成本153.407，光模块CPO"},
+  {code:"001311", sym:"sz001311", name:"多利科技", cost:13.847, shares:6000, stop:13.43, sellHalf:14.54, tshares:0, tcost:0, plan:"6000股，成本13.847，汽车零部件"},
+  {code:"002606", sym:"sz002606", name:"大连电瓷", cost:11.880, shares:6300, stop:11.52, sellHalf:12.47, tshares:0, tcost:0, plan:"6300股，成本11.880，电力设备"},
+  {code:"000949", sym:"sz000949", name:"新乡化纤", cost:5.259,  shares:3300, stop:5.10,  sellHalf:5.52,  tshares:0, tcost:0, plan:"3300股，成本5.259，化纤"},
 ];
 const INDEX_SYMS = ["sh000001", "sz399006"];
 let minuteCache = {};
@@ -293,6 +297,6 @@ setInterval(refreshFundFlow, 30000);
   <table style='margin-top:6px'><thead><tr><th>股票</th><th>主力净流入</th><th>超大单</th><th>大单</th></tr></thead><tbody id='fflowBody'></tbody></table>
   <div class='foot'>口径：东方财富实时资金流（主力=超大单+大单），每 30 秒刷新，单位万元。</div>
 </div>
-<!--FUNDS_START--><div id='fundsPanel' style='margin-top:16px;border-top:1px solid #232830;padding-top:10px'><div style='font-size:15px;font-weight:700'>主力资金监控</div><div class='meta'>盘后更新 10-21 21:02｜五路口径：主力资金流/两融/股东户数/基金持仓/龙虎榜</div><table style='margin-top:6px'><thead><tr><th>股票</th><th>主力判断</th><th>5日主力净流入</th><th>5日超大单</th><th>两融余额变化</th><th>股东户数变化</th><th>基金持仓</th><th>龙虎榜(60日)</th></tr></thead><tbody><tr><td>恒瑞医药</td><td class='up' style='font-weight:700'>偏多(+2)</td><td class='up'>+8.30亿</td><td class='up'>+10.05亿</td><td>—</td><td class='up'>+17.6%</td><td>增仓(1441家)</td><td>未上榜</td></tr><tr><td>新安股份</td><td class='up' style='font-weight:700'>偏多(+2)</td><td class='up'>+0.43亿</td><td class='up'>+0.81亿</td><td>—</td><td class='up'>+43.6%</td><td>增仓(163家)</td><td>未上榜</td></tr><tr><td>森麒麟</td><td class='down' style='font-weight:700'>主力减持(-3)</td><td class='down'>-0.29亿</td><td class='down'>-0.09亿</td><td class='down'>-1.1%</td><td class='up'>+5.7%</td><td>增仓(187家)</td><td>未上榜</td></tr></tbody></table><div class='foot'>口径: 新浪主力资金流 · 两融(交易所) · 股东户数(东财) · 基金季报 · 新浪龙虎榜；北向个股持股明细自2024-08起停止披露，已剔除该维度。综合分≥3=主力增持 / ≥1=偏多 / 0=中性 / ≤-1=偏空 / ≤-3=减持。</div></div><!--FUNDS_END-->
+<!--FUNDS_START--><div id='fundsPanel' style='margin-top:16px;border-top:1px solid #232830;padding-top:10px'><div style='font-size:15px;font-weight:700'>主力资金监控</div><div class='meta'>盘后更新 11-21 16:49｜五路口径：主力资金流/两融/股东户数/基金持仓/龙虎榜</div><table style='margin-top:6px'><thead><tr><th>股票</th><th>主力判断</th><th>5日主力净流入</th><th>5日超大单</th><th>两融余额变化</th><th>股东户数变化</th><th>基金持仓</th><th>龙虎榜(60日)</th></tr></thead><tbody><tr><td>扬杰科技</td><td class='up' style='font-weight:700'>偏多(+2)</td><td class='up'>+1.18亿</td><td class='up'>+0.08亿</td><td>—</td><td class=''>—</td><td>—</td><td>未上榜</td></tr><tr><td>浪潮信息</td><td class='up' style='font-weight:700'>偏多(+2)</td><td class='up'>+4.21亿</td><td class='up'>+4.81亿</td><td>—</td><td class=''>—</td><td>—</td><td>未上榜</td></tr><tr><td>首华燃气</td><td class='up' style='font-weight:700'>偏多(+2)</td><td class='up'>+0.10亿</td><td class='up'>+0.27亿</td><td>—</td><td class=''>—</td><td>—</td><td>未上榜</td></tr><tr><td>新易盛</td><td class='down' style='font-weight:700'>偏空(-2)</td><td class='down'>-5.22亿</td><td class='down'>-6.39亿</td><td>—</td><td class=''>—</td><td>—</td><td>未上榜</td></tr><tr><td>多利科技</td><td class='down' style='font-weight:700'>偏空(-2)</td><td class='down'>-0.42亿</td><td class='down'>-0.03亿</td><td>—</td><td class=''>—</td><td>—</td><td>未上榜</td></tr><tr><td>大连电瓷</td><td class='up' style='font-weight:700'>偏多(+2)</td><td class='up'>+0.14亿</td><td class='up'>+0.28亿</td><td>—</td><td class=''>—</td><td>—</td><td>未上榜</td></tr><tr><td>新乡化纤</td><td class='down' style='font-weight:700'>偏空(-2)</td><td class='down'>-0.65亿</td><td class='down'>-0.32亿</td><td>—</td><td class=''>—</td><td>—</td><td>未上榜</td></tr></tbody></table><div class='foot'>口径: 新浪主力资金流 · 两融(交易所) · 股东户数(东财) · 基金季报 · 新浪龙虎榜；北向个股持股明细自2024-08起停止披露，已剔除该维度。综合分≥3=主力增持 / ≥1=偏多 / 0=中性 / ≤-1=偏空 / ≤-3=减持。</div></div><!--FUNDS_END-->
 </body>
 </html>
